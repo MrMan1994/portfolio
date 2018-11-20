@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import pic01 from '../images/pic01.jpg'
 import pic02 from '../images/pic02.jpg'
 import pic03 from '../images/pic03.jpg'
+import img_me_6x9 from '../images/me_6x9.jpg'
 
 class Main extends React.Component {
    render() {
@@ -33,15 +34,16 @@ class Main extends React.Component {
 
             <article id="about" className={`${this.props.article === 'about' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
                <h2 className="major">About</h2>
-               <span className="image main"><img src={pic03} alt="" /></span>
-               <p>
-
+               <img src={img_me_6x9} alt="" width="150px" style={{ float: 'left', margin: '20px' }} />
+               <p style={{ margin: '20px' }}>
+                  {"'"}99 in Cologne, Germany <br /> I{"'"}m a young photographer and IT enthusiast<br />
+                  Aliquam luctus tellus ac arcu volutpat efficitur. Maecenas sed posuere nisl, tempor pharetra eros. Vivamus facilisis odio nunc, eget egestas ipsum pellentesque id. Cras in rutrum ante. Fusce sit amet tellus vel ante interdum molestie. Nam dignissim dolor sapien, ut ullamcorper tellus commodo id. Nulla malesuada aliquet imperdiet. Donec volutpat risus ut tellus suscipit, vel feugiat augue elementum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent porta arcu tortor, nec interdum nibh congue quis. Nullam mattis elit et orci rhoncus, nec venenatis magna commodo. Lorem ipsum dolor sit amet, consectetur adipiscing elit
                </p>
                {close}
             </article>
 
-            <article id="contact" className={`${this.props.article === 'contact' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
-               <h2 className="major">Contact</h2>
+            <article id="feedback" className={`${this.props.article === 'feedback' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
+               <h2 className="major">Feedback</h2>
                <form method="post" action="#">
                   <div className="field half first">
                      <label htmlFor="name">Name</label>
@@ -60,12 +62,6 @@ class Main extends React.Component {
                      <li><input type="reset" value="Reset" /></li>
                   </ul>
                </form>
-               <ul className="icons">
-                  <li><a href="#" className="icon fa-twitter"><span className="label">Twitter</span></a></li>
-                  <li><a href="#" className="icon fa-facebook"><span className="label">Facebook</span></a></li>
-                  <li><a href="#" className="icon fa-instagram"><span className="label">Instagram</span></a></li>
-                  <li><a href="#" className="icon fa-github"><span className="label">GitHub</span></a></li>
-               </ul>
                {close}
             </article>
          </div>
