@@ -1,3 +1,5 @@
+@import "node_modules/react-image-gallery/styles/scss/image-gallery.scss";
+
 #main {
 	@include vendor('flex-grow', '1');
 	@include vendor('flex-shrink', '1');

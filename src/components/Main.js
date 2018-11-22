@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
-import Album from './album.js'
+import ImageGallery from 'react-image-gallery'
 
 import pic01 from '../images/pic01.jpg'
 import pic02 from '../images/pic02.jpg'
@@ -11,7 +10,20 @@ import cologne_cath_green from '../images/cologne/cologne_cathedral_green.jpg'
 import cologne_cath_bw from '../images/cologne/cologne_cathedral_bw.jpg'
 import rheinauhafen from '../images/rheinauhafen.jpg'
 
+const images = [
+  {
+    original: cologne_cath_bw
+  },
+  {
+    original: cologne_cath_green
+  },
+  {
+    original: rheinauhafen
+  }
+]
+
 class Main extends React.Component {
+
    render() {
 
       let close = <div className="close" onClick={() => {this.props.onCloseArticle()}}></div>
@@ -21,16 +33,21 @@ class Main extends React.Component {
 
             <article id="intro" className={`${this.props.article === 'intro' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
                <h2 className="major">Intro</h2>
-               <Album></Album>
+               <span className="image main"><img src={pic01} alt=""/></span>
+                  <p>
+                     Aliquam luctus tellus ac arcu volutpat efficitur. Maecenas sed posuere nisl, tempor pharetra eros. Vivamus facilisis odio nunc, eget egestas ipsum pellentesque id. Cras in rutrum ante. Fusce sit amet tellus vel ante interdum molestie. Nam dignissim dolor sapien, ut ullamcorper tellus commodo id. Nulla malesuada aliquet imperdiet. Donec volutpat risus ut tellus suscipit, vel feugiat augue elementum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent porta arcu tortor, nec interdum nibh congue quis. Nullam mattis elit et orci rhoncus, nec venenatis magna commodo. Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                  </p>
                {close}
             </article>
 
             <article id="work" className={`${this.props.article === 'work' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{ width: '60%', display:'none'}}>
-               {/*<h2 className="major">Work</h2>*/}
+               <h2 className="major">Work</h2>
                <span>
-                  <img className="image fit" src={cologne_cath_green} alt="" />
+                  {/*<img className="image fit" src={cologne_cath_green} alt="" />
                   <img className="image fit" src={rheinauhafen} alt="" />
                   <img className="image fit" src={cologne_cath_bw} alt="" />
+                  </span>*/}
+                  <ImageGallery showPlayButton={false} backdropClosesModal={true} preloadNextImage={true} items={images} />
                </span>
                {close}
             </article>
