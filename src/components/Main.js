@@ -1,10 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import Album from './album.js'
+
 import pic01 from '../images/pic01.jpg'
 import pic02 from '../images/pic02.jpg'
 import pic03 from '../images/pic03.jpg'
 import img_me_6x9 from '../images/me_6x9.jpg'
+import cologne_cath_green from '../images/cologne/cologne_cathedral_green.jpg'
+import cologne_cath_bw from '../images/cologne/cologne_cathedral_bw.jpg'
+import rheinauhafen from '../images/rheinauhafen.jpg'
 
 class Main extends React.Component {
    render() {
@@ -16,26 +21,26 @@ class Main extends React.Component {
 
             <article id="intro" className={`${this.props.article === 'intro' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
                <h2 className="major">Intro</h2>
-               <span className="image main"><img src={pic01} alt="" /></span>
-               <p>
-
-               </p>
+               <Album></Album>
                {close}
             </article>
 
-            <article id="work" className={`${this.props.article === 'work' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
-               <h2 className="major">Work</h2>
-               <span className="image main"><img src={pic02} alt="" /></span>
-               <p>
-
-               </p>
+            <article id="work" className={`${this.props.article === 'work' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{ width: '60%', display:'none'}}>
+               {/*<h2 className="major">Work</h2>*/}
+               <span>
+                  <img className="image fit" src={cologne_cath_green} alt="" />
+                  <img className="image fit" src={rheinauhafen} alt="" />
+                  <img className="image fit" src={cologne_cath_bw} alt="" />
+               </span>
                {close}
             </article>
 
             <article id="about" className={`${this.props.article === 'about' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
                <h2 className="major">About</h2>
-               <img src={img_me_6x9} alt="" width="150px" style={{ float: 'left', margin: '20px' }} />
-               <p style={{ margin: '20px' }}>
+               <span className="">
+                  <img className="image left" src={img_me_6x9} alt="" />
+               </span>
+               <p>
                   {"'"}99 in Cologne, Germany <br /> I{"'"}m a young photographer and IT enthusiast<br />
                   Aliquam luctus tellus ac arcu volutpat efficitur. Maecenas sed posuere nisl, tempor pharetra eros. Vivamus facilisis odio nunc, eget egestas ipsum pellentesque id. Cras in rutrum ante. Fusce sit amet tellus vel ante interdum molestie. Nam dignissim dolor sapien, ut ullamcorper tellus commodo id. Nulla malesuada aliquet imperdiet. Donec volutpat risus ut tellus suscipit, vel feugiat augue elementum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent porta arcu tortor, nec interdum nibh congue quis. Nullam mattis elit et orci rhoncus, nec venenatis magna commodo. Lorem ipsum dolor sit amet, consectetur adipiscing elit
                </p>
