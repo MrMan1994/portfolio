@@ -23,6 +23,34 @@ const images = [
 ]
 
 class Main extends React.Component {
+   renderRightNav(onClick, disabled) {
+      return (
+         <i
+            className='fa fa-angle-right fa-3x rightArrow'
+            disabled={disabled}
+            onClick={onClick}
+         />
+      )
+   }
+
+   renderLeftNav(onClick, disabled) {
+      return (
+         <i
+            className='fa fa-angle-left fa-3x leftArrow'
+            disabled={disabled}
+            onClick={onClick}
+         />
+      )
+   }
+
+   renderFullscreenButton(onClick, isFullScreen) {
+      return (
+         <i
+            className='fa fa-expand fa-3x fullScreen'
+            onClick={onClick}
+         />
+      )
+   }
 
    render() {
 
@@ -30,7 +58,6 @@ class Main extends React.Component {
 
       return (
          <div ref={this.props.setWrapperRef} id="main" style={this.props.timeout ? {display: 'flex'} : {display: 'none'}}>
-
             <article id="intro" className={`${this.props.article === 'intro' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
                <h2 className="major">Intro</h2>
                <span className="image main"><img src={pic01} alt=""/></span>
@@ -40,15 +67,20 @@ class Main extends React.Component {
                {close}
             </article>
 
-            <article id="work" className={`${this.props.article === 'work' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{ width: '60%', display:'none'}}>
+            <article id="work" className={`${this.props.article === 'work' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{ display:'none'}}>
                <h2 className="major">Work</h2>
-               <span>
-                  {/*<img className="image fit" src={cologne_cath_green} alt="" />
-                  <img className="image fit" src={rheinauhafen} alt="" />
-                  <img className="image fit" src={cologne_cath_bw} alt="" />
-                  </span>*/}
-                  <ImageGallery showPlayButton={false} backdropClosesModal={true} preloadNextImage={true} items={images} />
-               </span>
+               <ImageGallery
+                  renderFullscreenButton={this.renderFullscreenButton}
+                  renderLeftNav={this.renderLeftNav}
+                  renderRightNav={this.renderRightNav}
+                  showNav={true}
+                  showIndex={true}
+                  showBullets={false}
+                  showPlayButton={false}
+                  backdropClosesModal={true}
+                  preloadNextImage={true}
+                  items={images}
+               />
                {close}
             </article>
 

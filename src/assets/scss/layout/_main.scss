@@ -13,6 +13,34 @@
 	display: none;
 
 	article {
+		i {
+  			display: inline-block;
+  			padding: 3px;
+		}
+
+		.rightArrow {
+			position: absolute;
+			z-index: 4;
+			right: 0.8%;
+			top: 42%;
+			cursor: pointer;
+		}
+
+		.leftArrow {
+			position: absolute;
+			z-index: 4;
+			left: 0.8%;
+			top: 42%;
+			cursor: pointer;
+		}
+
+		.fullScreen {
+			position: absolute;
+			z-index: 4;
+			right: 0.8%;
+			bottom: 0.8%;
+		}
+
 		@include vendor('transform', 'translateY(0.25rem)');
 		@include vendor('transition', (
 			'opacity #{_duration(article)} ease-in-out',
