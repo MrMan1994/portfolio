@@ -10,13 +10,17 @@ class IndexPage extends React.Component {
       super(props)
       this.state = {
          isArticleVisible: false,
+         isAlbumVisible: false,
          timeout: false,
          articleTimeout: false,
          article: '',
+         album: '',
          loading: 'is-loading'
       }
       this.handleOpenArticle = this.handleOpenArticle.bind(this)
+      this.handleOpenAlbum = this.handleOpenAlbum.bind(this)
       this.handleCloseArticle = this.handleCloseArticle.bind(this)
+      this.handleCloseAlbum = this.handleCloseAlbum.bind(this)
       this.setWrapperRef = this.setWrapperRef.bind(this);
       this.handleClickOutside = this.handleClickOutside.bind(this);
    }
@@ -58,6 +62,13 @@ class IndexPage extends React.Component {
 
    }
 
+   handleOpenAlbum(album) {
+      this.setState({
+         isAlbumVisible: !this.state.isAlbumVisible,
+         album
+      })
+   }
+
    handleCloseArticle() {
 
       this.setState({
@@ -73,10 +84,19 @@ class IndexPage extends React.Component {
       setTimeout(() => {
          this.setState({
             isArticleVisible: !this.state.isArticleVisible,
-            article: ''
+            isAlbumVisible: !this.state.isAlbumVisible,
+            article: '',
+            album: '',
          })
       }, 350)
 
+   }
+
+   handleCloseAlbum() {
+      this.setState({
+         isAlbumVisible: !this.state.isAlbumVisible,
+         album: ''
+      })
    }
 
    handleClickOutside(event) {
@@ -95,10 +115,14 @@ class IndexPage extends React.Component {
                   <Header onOpenArticle={this.handleOpenArticle} timeout={this.state.timeout} />
                   <Main
                      isArticleVisible={this.state.isArticleVisible}
+                     isAlbumVisible={this.state.isAlbumVisible}
                      timeout={this.state.timeout}
                      articleTimeout={this.state.articleTimeout}
                      article={this.state.article}
+                     album={this.state.album}
                      onCloseArticle={this.handleCloseArticle}
+                     onOpenAlbum={this.handleOpenAlbum}
+                     onCloseAlbum={this.handleCloseAlbum}
                      setWrapperRef={this.setWrapperRef}
                   />
                   <Footer timeout={this.state.timeout} />

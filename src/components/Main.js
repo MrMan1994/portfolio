@@ -23,6 +23,7 @@ const images = [
 ]
 
 class Main extends React.Component {
+
    renderRightNav(onClick, disabled) {
       return (
          <i
@@ -53,7 +54,6 @@ class Main extends React.Component {
    }
 
    render() {
-
       let close = <div className="close" onClick={() => {this.props.onCloseArticle()}}></div>
 
       return (
@@ -69,18 +69,23 @@ class Main extends React.Component {
 
             <article id="work" className={`${this.props.article === 'work' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{ display:'none'}}>
                <h2 className="major">Work</h2>
-               <ImageGallery
-                  renderFullscreenButton={this.renderFullscreenButton}
-                  renderLeftNav={this.renderLeftNav}
-                  renderRightNav={this.renderRightNav}
-                  showNav={true}
-                  showIndex={true}
-                  showBullets={false}
-                  showPlayButton={false}
-                  backdropClosesModal={true}
-                  preloadNextImage={true}
-                  items={images}
-               />
+
+               <div id="overview" style={this.props.isAlbumVisible ? {display: 'none'} : {display: 'block'}}>
+                  <img className='image left' src={rheinauhafen} alt="" onClick={() => {this.props.onOpenAlbum('cologne')}}></img>
+
+               </div>
+               <div style={this.props.isAlbumVisible ? {display: 'block'} : {display: 'none'}}>
+                  <ImageGallery
+                     renderFullscreenButton={this.renderFullscreenButton}
+                     renderLeftNav={this.renderLeftNav}
+                     renderRightNav={this.renderRightNav}
+                     showNav={true}
+                     showIndex={true}
+                     showPlayButton={false}
+                     preloadNextImage={true}
+                     items={images}
+                  />
+               </div>
                {close}
             </article>
 
@@ -126,10 +131,13 @@ class Main extends React.Component {
 Main.propTypes = {
    route: PropTypes.object,
    article: PropTypes.string,
+   album: PropTypes.string,
    articleTimeout: PropTypes.bool,
    onCloseArticle: PropTypes.func,
+   onCloseAlbum: PropTypes.func,
    timeout: PropTypes.bool,
    setWrapperRef: PropTypes.func.isRequired,
+   isAlbumVisible: PropTypes.bool
 }
 
 export default Main
