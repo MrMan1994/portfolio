@@ -10,7 +10,7 @@ import cologne_cath_green from '../images/cologne/cologne_cathedral_green.jpg'
 import cologne_cath_bw from '../images/cologne/cologne_cathedral_bw.jpg'
 import rheinauhafen from '../images/rheinauhafen.jpg'
 
-const images = [
+const images_cologne = [
   {
     original: cologne_cath_bw
   },
@@ -21,6 +21,7 @@ const images = [
     original: rheinauhafen
   }
 ]
+const prev_cologne = cologne_cath_green
 
 class Main extends React.Component {
 
@@ -47,8 +48,9 @@ class Main extends React.Component {
    renderFullscreenButton(onClick, isFullScreen) {
       return (
          <i
-            className='fa fa-expand fa-3x fullScreen'
+            className='fa fa-expand fa-2x fullScreen'
             onClick={onClick}
+            style={{cursor: 'pointer'}}
          />
       )
    }
@@ -69,12 +71,27 @@ class Main extends React.Component {
 
             <article id="work" className={`${this.props.article === 'work' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{ display:'none'}}>
                <h2 className="major">Work</h2>
-
-               <div id="overview" style={this.props.isAlbumVisible ? {display: 'none'} : {display: 'block'}}>
-                  <img className='image left' src={rheinauhafen} alt="" onClick={() => {this.props.onOpenAlbum('cologne')}}></img>
-
+               <div style={this.props.isAlbumVisible ? {display:'block', marginBottom: '1%'} : {display:'none'}}>
+                  <span className='fa fa-long-arrow-left fa-1x' onClick={()=>{this.props.onCloseAlbum()}} style={{ cursor: 'pointer'}}></span>
+                  <span onClick={()=>{this.props.onCloseAlbum()}} style={{ cursor: 'pointer', marginLeft: '1%' }}>back</span>
                </div>
-               <div style={this.props.isAlbumVisible ? {display: 'block'} : {display: 'none'}}>
+               <div id="overview" style={this.props.isAlbumVisible ? {display: 'none'} : {display: 'block'}}>
+                  <div id="preview_cologne">
+                     <img
+                        className='image left'
+                        src={prev_cologne}
+                        alt=""
+                        onClick={() => {this.props.onOpenAlbum('cologne')}}
+                        style={{ cursor: 'pointer' }}
+                     />
+                  <span
+                        onClick={() => {this.props.onOpenAlbum('cologne')}}
+                        style={{ position: 'absolute', bottom: '10%', left: '17.5%', cursor: 'pointer' }}>
+                           Cologne
+                  </span>
+                  </div>
+               </div>
+               <div id="gallery_cologne" style={this.props.isAlbumVisible ? {display: 'block'} : {display: 'none'}}>
                   <ImageGallery
                      renderFullscreenButton={this.renderFullscreenButton}
                      renderLeftNav={this.renderLeftNav}
@@ -83,7 +100,7 @@ class Main extends React.Component {
                      showIndex={true}
                      showPlayButton={false}
                      preloadNextImage={true}
-                     items={images}
+                     items={images_cologne}
                   />
                </div>
                {close}

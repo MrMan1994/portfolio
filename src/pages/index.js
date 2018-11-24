@@ -84,10 +84,14 @@ class IndexPage extends React.Component {
       setTimeout(() => {
          this.setState({
             isArticleVisible: !this.state.isArticleVisible,
-            isAlbumVisible: !this.state.isAlbumVisible,
-            article: '',
-            album: '',
+            article: ''
          })
+         if (this.state.isAlbumVisible) {
+            this.setState({
+               isAlbumVisible: !this.state.isAlbumVisible,
+               album: ''
+            })
+         }
       }, 350)
 
    }
@@ -102,7 +106,10 @@ class IndexPage extends React.Component {
    handleClickOutside(event) {
       if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
          if (this.state.isArticleVisible) {
-            this.handleCloseArticle();
+            this.handleCloseArticle()
+            if (this.state.isAlbumVisible) {
+               this.handleCloseAlbum()
+            }
          }
       }
    }
