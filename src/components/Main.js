@@ -100,6 +100,7 @@ class Main extends React.Component {
                      showIndex={true}
                      showPlayButton={false}
                      preloadNextImage={true}
+                     disableSwipe={false}
                      items={images_cologne}
                   />
                </div>
