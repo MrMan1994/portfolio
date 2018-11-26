@@ -3,8 +3,6 @@ import PropTypes from 'prop-types'
 import ImageGallery from 'react-image-gallery'
 
 import pic01 from '../images/pic01.jpg'
-import pic02 from '../images/pic02.jpg'
-import pic03 from '../images/pic03.jpg'
 import img_me_6x9 from '../images/me_6x9.jpg'
 import cologne_cath_green from '../images/cologne/cologne_cathedral_green.jpg'
 import cologne_cath_bw from '../images/cologne/cologne_cathedral_bw.jpg'

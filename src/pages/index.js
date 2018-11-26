@@ -21,8 +21,9 @@ class IndexPage extends React.Component {
       this.handleOpenAlbum = this.handleOpenAlbum.bind(this)
       this.handleCloseArticle = this.handleCloseArticle.bind(this)
       this.handleCloseAlbum = this.handleCloseAlbum.bind(this)
-      this.setWrapperRef = this.setWrapperRef.bind(this);
-      this.handleClickOutside = this.handleClickOutside.bind(this);
+      this.setWrapperRef = this.setWrapperRef.bind(this)
+      this.handleClickOutside = this.handleClickOutside.bind(this)
+      this.handleOpenContextMenu = this.handleOpenContextMenu.bind(this)
    }
 
    componentDidMount () {
@@ -114,10 +115,14 @@ class IndexPage extends React.Component {
       }
    }
 
+   handleOpenContextMenu(e) {
+      e.preventDefault();
+   }
+
    render() {
       return (
          <Layout location={this.props.location}>
-            <div className={`body ${this.state.loading} ${this.state.isArticleVisible ? 'is-article-visible' : ''}`}>
+            <div className={`body ${this.state.loading} ${this.state.isArticleVisible ? 'is-article-visible' : ''}`} onContextMenu={this.handleOpenContextMenu}>
                <div id="wrapper">
                   <Header onOpenArticle={this.handleOpenArticle} timeout={this.state.timeout} />
                   <Main
