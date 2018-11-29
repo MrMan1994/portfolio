@@ -76,10 +76,10 @@ class Main extends React.Component {
                   <span className='fa fa-long-arrow-left fa-1x' onClick={()=>{this.props.onCloseAlbum()}} style={{ cursor: 'pointer'}}></span>
                   <span onClick={()=>{this.props.onCloseAlbum()}} style={{ cursor: 'pointer', marginLeft: '1%' }}>back</span>
                </div>
-               <div className="gallery_overview" style={this.props.isAlbumVisible ? {display: 'none'} : {display: 'inline-flex'}}>
+               <div id="gallery_overview" className="gallery_overview" style={this.props.isAlbumVisible ? {display: 'none'} : {display: 'inline-flex', flexWrap: 'wrap'}}>
                      <TestImage></TestImage>
                      <TestImage></TestImage>
-                     <TestImage></TestImage><br />
+                     <TestImage></TestImage>
                      <TestImage></TestImage>
                </div>
                <div id="gallery_cologne" style={this.props.isAlbumVisible ? {display: 'block'} : {display: 'none'}}>
