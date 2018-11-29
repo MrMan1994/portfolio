@@ -2,7 +2,9 @@ import React from 'react'
 import rheinauhafen from '../images/rheinauhafen.jpg'
 
 class GalleryElement extends React.Component {
-
+    constructor(props){
+      super(props);
+    }
 
 
    render(){
