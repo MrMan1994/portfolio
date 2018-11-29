@@ -1,12 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import ImageGallery from 'react-image-gallery'
+import TestImage from './testimage.js'
 
 import pic01 from '../images/pic01.jpg'
 import img_me_6x9 from '../images/me_6x9.jpg'
 import cologne_cath_green from '../images/cologne/cologne_cathedral_green.jpg'
 import cologne_cath_bw from '../images/cologne/cologne_cathedral_bw.jpg'
 import rheinauhafen from '../images/rheinauhafen.jpg'
+
+
 
 const images_cologne = [
   {
@@ -19,7 +22,7 @@ const images_cologne = [
     original: rheinauhafen
   }
 ]
-const prev_cologne = cologne_cath_green
+const preview_img_cologne = cologne_cath_green
 
 class Main extends React.Component {
 
@@ -73,21 +76,11 @@ class Main extends React.Component {
                   <span className='fa fa-long-arrow-left fa-1x' onClick={()=>{this.props.onCloseAlbum()}} style={{ cursor: 'pointer'}}></span>
                   <span onClick={()=>{this.props.onCloseAlbum()}} style={{ cursor: 'pointer', marginLeft: '1%' }}>back</span>
                </div>
-               <div id="overview" style={this.props.isAlbumVisible ? {display: 'none'} : {display: 'block'}}>
-                  <div id="preview_cologne">
-                     <img
-                        className='image left'
-                        src={prev_cologne}
-                        alt=""
-                        onClick={() => {this.props.onOpenAlbum('cologne')}}
-                        style={{ cursor: 'pointer' }}
-                     />
-                  <span
-                        onClick={() => {this.props.onOpenAlbum('cologne')}}
-                        style={{ position: 'absolute', bottom: '10%', left: '17.5%', cursor: 'pointer' }}>
-                           Cologne
-                  </span>
-                  </div>
+               <div className="gallery_overview" style={this.props.isAlbumVisible ? {display: 'none'} : {display: 'inline-flex'}}>
+                     <TestImage></TestImage>
+                     <TestImage></TestImage>
+                     <TestImage></TestImage><br />
+                     <TestImage></TestImage>
                </div>
                <div id="gallery_cologne" style={this.props.isAlbumVisible ? {display: 'block'} : {display: 'none'}}>
                   <ImageGallery

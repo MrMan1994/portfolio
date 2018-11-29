@@ -116,7 +116,7 @@ class IndexPage extends React.Component {
    }
 
    handleOpenContextMenu(e) {
-      e.preventDefault();
+      //e.preventDefault();
    }
 
    render() {
