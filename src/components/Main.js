@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import ImageGallery from 'react-image-gallery'
-import TestImage from './testimage.js'
+import GalleryElement from './galleryElement.js'
 
 import pic01 from '../images/pic01.jpg'
 import img_me_6x9 from '../images/me_6x9.jpg'
@@ -77,10 +77,10 @@ class Main extends React.Component {
                   <span onClick={()=>{this.props.onCloseAlbum()}} style={{ cursor: 'pointer', marginLeft: '1%' }}>back</span>
                </div>
                <div id="gallery_overview" className="gallery_overview" style={this.props.isAlbumVisible ? {display: 'none'} : {display: 'inline-flex', flexWrap: 'wrap'}}>
-                     <TestImage></TestImage>
-                     <TestImage></TestImage>
-                     <TestImage></TestImage>
-                     <TestImage></TestImage>
+                     <GalleryElement></GalleryElement>
+                     <GalleryElement></GalleryElement>
+                     <GalleryElement></GalleryElement>
+                     <GalleryElement></GalleryElement>
                </div>
                <div id="gallery_cologne" style={this.props.isAlbumVisible ? {display: 'block'} : {display: 'none'}}>
                   <ImageGallery
