@@ -11,7 +11,7 @@ class GalleryElement extends React.Component {
                <img className="overview-image" src={rheinauhafen} width="100%" height="100%" alt=""/>
                <span className="overview-view-gallery"><h3 className="overview-view-gallery-inner"><span className="overview-view-gallery-inner-inner">View Gallery</span></h3></span>
             </div>
-            <span className="overview-title"><h3>{this.props.children}</h3></span>
+            <span className="overview-title"><h2>{this.props.children}</h2></span>
          </div>
       )
    }
