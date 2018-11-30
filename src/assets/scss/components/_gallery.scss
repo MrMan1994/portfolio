@@ -1,0 +1,49 @@
+.overview-element {
+   position: relative;
+   display: flex;
+   margin-bottom: '1rem';
+
+   &:hover .overview-view-gallery{
+      opacity: 1;
+   }
+}
+
+.overview-image {
+   cursor: pointer;
+}
+
+.overview-image-container {
+   .overview-view-gallery {
+      cursor: pointer;
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      max-width: 100%;
+      max-height: 100%;
+      background-color: rgba(0,0,0,0.7);
+      height: 100%;
+      width: 100%;
+
+      .overview-view-gallery-inner {
+         height: 100%;
+         width: 100%;
+         text-align: center;
+         transform: translateY(50%);
+         .overview-view-gallery-inner-inner {
+            border: 1px solid white;
+         }
+      }
+   }
+}
+
+.overview-title {
+   cursor: pointer;
+   position: absolute;
+   display: flex;
+   width: 100%;
+   align-items: center;
+   justify-content: center;
+   bottom: 0;
+}

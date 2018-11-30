@@ -77,14 +77,18 @@ class Main extends React.Component {
                   <span onClick={()=>{this.props.onCloseAlbum()}} style={{ cursor: 'pointer', marginLeft: '1%' }}>back</span>
                </div>
                <div id="gallery_overview" className="gallery_overview" style={this.props.isAlbumVisible ? {display: 'none'} : {display: 'inline-flex', flexWrap: 'wrap'}}>
-                 <i onClick={()=>{this.props.onOpenAlbum('cologne')}} style={{ display: 'inline-flex', flexWrap: 'nowrap' }}>
-                   <GalleryElement></GalleryElement>
-                </i>
-                <i>
-                   <GalleryElement></GalleryElement>
-                </i>
-                 <GalleryElement></GalleryElement>
-                   <GalleryElement></GalleryElement>
+                  <i onClick={()=>{this.props.onOpenAlbum('cologne')}}>
+                      <GalleryElement>Cologne</GalleryElement>
+                  </i>
+                  <i>
+                      <GalleryElement></GalleryElement>
+                  </i>
+                  <i>
+                      <GalleryElement></GalleryElement>
+                  </i>
+                  <i>
+                     <GalleryElement></GalleryElement>
+                  </i>
                </div>
                <div id="gallery_cologne" style={this.props.isAlbumVisible ? {display: 'block'} : {display: 'none'}}>
                   <ImageGallery

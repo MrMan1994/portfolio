@@ -1,17 +1,17 @@
 import React from 'react'
 import rheinauhafen from '../images/rheinauhafen.jpg'
 
+import '../assets/scss/components/_gallery.scss'
+
 class GalleryElement extends React.Component {
-    constructor(props){
-      super(props);
-    }
-
-
    render(){
       return(
-         <div className="overview_element" style={{ position: 'relative', maxWidth: '40%', display: 'flex', marginBottom: '1rem' }}>
-            <img src={rheinauhafen} width="90%" alt="" style={{ cursor: 'pointer', padding: 0 }} />
-            <span style={{ cursor: 'pointer', position: 'absolute', display: 'flex', width: '90%', alignItems: 'center', justifyContent: 'center', bottom: 0}}>Cologne</span>
+         <div className="overview-element">
+            <div className="overview-image-container">
+               <img className="overview-image" src={rheinauhafen} width="100%" height="100%" alt=""/>
+               <span className="overview-view-gallery"><h3 className="overview-view-gallery-inner"><span className="overview-view-gallery-inner-inner">View Gallery</span></h3></span>
+            </div>
+            <span className="overview-title"><h3>{this.props.children}</h3></span>
          </div>
       )
    }
