@@ -1,4 +1,5 @@
 @import "node_modules/react-image-gallery/styles/scss/image-gallery.scss";
+@import "src/assets/scss/components/_gallery.scss";
 
 #main {
 	@include vendor('flex-grow', '1');
@@ -17,29 +18,6 @@
 		i {
   			display: inline-block;
   			padding: 3px;
-		}
-
-		.rightArrow {
-			position: absolute;
-			z-index: 4;
-			right: 0.8%;
-			top: 42%;
-			cursor: pointer;
-		}
-
-		.leftArrow {
-			position: absolute;
-			z-index: 4;
-			left: 0.8%;
-			top: 42%;
-			cursor: pointer;
-		}
-
-		.fullScreen {
-			position: absolute;
-			z-index: 4;
-			right: 0.8%;
-			bottom: 0.8%;
 		}
 
 		@include vendor('transform', 'translateY(0.25rem)');
