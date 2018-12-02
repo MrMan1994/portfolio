@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import ImageGallery from 'react-image-gallery'
+import GalleryCover from "./galleryCover"
 
 import cologne1 from '../images/cologne/cologne_2.jpg'
 import cologne2 from '../images/cologne/cologne_1.jpg'
@@ -10,29 +11,25 @@ import portrait2 from '../images/portrait/portrait_2.jpg'
 import pic01 from '../images/pic01.jpg'
 import img_me_6x9 from '../images/about/me_6x9.jpg'
 
-const imagesCologne = [
+const galleries = [
   {
-    original: cologne1
+    name: "Cologne",
+    cover: cologne1,
+    images: [
+      cologne1,
+      cologne2,
+      cologne3
+    ]
   },
   {
-    original: cologne2
-  },
-  {
-    original: cologne3
+    name: "Portrait",
+    cover: portrait1,
+    images: [
+      portrait1,
+      portrait2
+    ]
   }
 ]
-
-const imagesPortrait = [
-   {
-      original: portrait1
-   },
-   {
-      original: portrait2
-   }
-]
-
-const prevImgCologne = cologne1
-const prevImgPortrait = portrait1
 
 class Main extends React.Component {
    renderRightNav(onClick, disabled) {
@@ -86,56 +83,37 @@ class Main extends React.Component {
                   <span onClick={()=>{this.props.onCloseAlbum()}} style={{ cursor: 'pointer', marginLeft: '1%' }}>back</span>
                </div>
 
-               <span id="cologne" className="gallery-element-container">
-                  <div onClick={()=>{this.props.onOpenAlbum('Cologne')}} style={this.props.isAlbumVisible ? {display: 'none'} : {display: 'flex'}}>
-                     <div className="overview-element">
-                        <div className="overview-image-container">
-                           <img className="overview-image" src={prevImgCologne} width="100%" height="100%" alt=""/>
-                           <span className="overview-view-gallery vertical"><h3 className="overview-view-gallery-h3"><span className="overview-view-gallery-inner">View Gallery</span></h3></span>
-                        </div>
-                        <span className="overview-title"><h2>Cologne</h2></span>
-                     </div>
-                  </div>
-                  <div style={this.props.album === 'Cologne' ? {display: 'block'} : {display: 'none'}}>
-                     <ImageGallery
-                        renderFullscreenButton={this.renderFullscreenButton}
-                        renderLeftNav={this.renderLeftNav}
-                        renderRightNav={this.renderRightNav}
-                        showNav={true}
-                        showIndex={true}
-                        showPlayButton={false}
-                        preloadNextImage={true}
-                        disableSwipe={false}
-                        items={imagesCologne}
-                        showThumbnails={false}
+              {galleries.map(gallery => (
+                <div id={gallery.name} key={gallery.name} className="gallery-element-container">
+                   {
+                     !this.props.isAlbumVisible &&
+                     <GalleryCover
+                       coverImage={gallery.cover}
+                       onOpenAlbum={this.props.onOpenAlbum}
+                       galleryName={gallery.name}
                      />
-                  </div>
-               </span>
-               <span id="portrait" className="gallery-element-container">
-                  <div onClick={()=>{this.props.onOpenAlbum('Portrait')}} style={this.props.isAlbumVisible ? {display: 'none'} : {display: 'flex'}}>
-                     <div className="overview-element">
-                        <div className="overview-image-container">
-                           <img className="overview-image" src={prevImgPortrait} width="60%" alt=""/>
-                           <span className="overview-view-gallery horizontal"><h3 className="overview-view-gallery-h3"><span className="overview-view-gallery-inner">View Gallery</span></h3></span>
-                        </div>
-                        <span className="overview-title"><h2>Portrait</h2></span>
-                     </div>
-                  </div>
-                  <div style={this.props.album === 'Portrait' ? {display: 'block'} : {display: 'none'}}>
-                     <ImageGallery
-                        renderFullscreenButton={this.renderFullscreenButton}
-                        renderLeftNav={this.renderLeftNav}
-                        renderRightNav={this.renderRightNav}
-                        showNav={true}
-                        showIndex={true}
-                        showPlayButton={false}
-                        preloadNextImage={true}
-                        disableSwipe={false}
-                        items={imagesPortrait}
-                        showThumbnails={false}
-                     />
-                  </div>
-               </span>
+                   }
+
+                   {
+                     this.props.album === gallery.name &&
+                      <ImageGallery
+                         renderFullscreenButton={this.renderFullscreenButton}
+                         renderLeftNav={this.renderLeftNav}
+                         renderRightNav={this.renderRightNav}
+                         showNav={true}
+                         showIndex={true}
+                         showPlayButton={false}
+                         preloadNextImage={true}
+                         disableSwipe={false}
+                         items={gallery.images.map(image => {return{'original': image}})}
+                         showThumbnails={false}
+                      />
+                   }
+                </div>
+              ))}
+
+
+
                {close}
             </article>
 
